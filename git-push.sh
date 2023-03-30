@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#chmod +x git-push.sh
+#chmod +x git-push.sh to make it executable
 
 # Prompt the user for a commit message
 echo "Please enter a commit message:"

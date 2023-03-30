@@ -27,3 +27,5 @@ yarn.lock
 
 # macOS files
 .DS_Store
+
+git-push.sh

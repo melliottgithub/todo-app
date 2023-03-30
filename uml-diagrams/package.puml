@@ -1,0 +1,41 @@
+@startuml
+
+package "src" {
+  package "domain" {
+    package "todo" {
+      package "factories" {
+        class TodoFactory
+      }
+      
+      package "models" {
+        class Todo
+      }
+      
+      package "repositories" {
+        interface ITodoRepository
+      }
+      
+      package "services" {
+        interface ITodoService
+      }
+    }
+  }
+  
+  package "infrastructure" {
+    package "api" {
+      class CreateTodoHandler
+      class GetTodoHandler
+      class UpdateTodoHandler
+      class DeleteTodoHandler
+      class ListTodosHandler
+    }
+    package "database" {
+      package "dynamodb" {
+        class DynamoDBClient
+        class TodoDynamoDBRepository
+      }
+    }
+  }
+}
+
+@enduml
