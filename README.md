@@ -80,7 +80,7 @@ todo-project/
 4. Set up your AWS credentials:
 
     
-    [AWS Credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
+    [Set up AWS Credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
     
 
 5. Bootstrap the AWS CDK:
