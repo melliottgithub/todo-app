@@ -1,0 +1,29 @@
+# Dependency directories
+/node_modules
+/.pnp
+.pnp.js
+
+# Distribution directories
+/dist
+
+# TypeScript configuration file
+tsconfig.json
+
+# TypeScript build output files
+*.js
+*.js.map
+
+# Editor-specific files
+.vscode/
+*.idea/
+*.vs/
+
+# Yarn-specific files
+yarn-error.log
+yarn.lock
+.pnp.js
+.pnp.cjs
+.pnp.mjs
+
+# macOS files
+.DS_Store

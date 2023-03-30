@@ -1,0 +1,14 @@
+@startuml
+actor User
+participant "API Gateway" as Gateway
+participant "AWS Lambda" as Lambda
+participant "DynamoDB" as DB
+
+User -> Gateway: HTTP Request
+Gateway -> Lambda: Invoke Lambda Function
+Lambda -> DB: Execute CRUD Operations
+DB -> Lambda: Return Result
+Lambda -> Gateway: Return Result
+Gateway -> User: HTTP Response
+
+@enduml

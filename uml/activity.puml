@@ -1,0 +1,23 @@
+@startuml
+
+start
+
+:User sends createTodo request;
+
+:LambdaHandlers.create is invoked;
+
+:Instantiate TodoService;
+
+:Instantiate TodoFactory;
+
+:Create Todo instance;
+
+:Instantiate TodoDynamoDBRepository;
+
+:Persist Todo in database;
+
+:LambdaHandlers.create returns created Todo;
+
+stop
+
+@enduml

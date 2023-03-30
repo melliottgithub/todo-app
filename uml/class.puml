@@ -1,0 +1,68 @@
+@startuml
+
+class Todo {
+  -id: string
+  -title: string
+  -description: string
+  -completed: boolean
+  -createdAt: Date
+  -updatedAt: Date
+}
+
+interface ITodoRepository {
+  +create(todo: Todo): Promise<Todo>
+  +getById(id: string): Promise<Todo>
+  +update(todo: Todo): Promise<Todo>
+  +delete(id: string): Promise<void>
+  +list(): Promise<Todo[]>
+}
+
+interface ITodoService {
+  +createTodo(title: string, description: string): Promise<Todo>
+  +getTodo(id: string): Promise<Todo>
+  +updateTodo(id: string, updates: Partial<Todo>): Promise<Todo>
+  +deleteTodo(id: string): Promise<void>
+  +listTodos(): Promise<Todo[]>
+}
+
+class TodoDynamoDBRepository {
+  +create(todo: Todo): Promise<Todo>
+  +getById(id: string): Promise<Todo>
+  +update(todo: Todo): Promise<Todo>
+  +delete(id: string): Promise<void>
+  +list(): Promise<Todo[]>
+}
+
+class TodoService {
+  +createTodo(title: string, description: string): Promise<Todo>
+  +getTodo(id: string): Promise<Todo>
+  +updateTodo(id: string, updates: Partial<Todo>): Promise<Todo>
+  +deleteTodo(id: string): Promise<void>
+  +listTodos(): Promise<Todo[]>
+}
+
+class TodoFactory {
+  +create(title: string, description: string): Todo
+}
+
+class LambdaHandlers {
+  +create(event: APIGatewayEvent, context: Context): Promise<APIGatewayProxyResult>
+  +get(event: APIGatewayEvent, context: Context): Promise<APIGatewayProxyResult>
+  +update(event: APIGatewayEvent, context: Context): Promise<APIGatewayProxyResult>
+  +delete(event: APIGatewayEvent, context: Context): Promise<APIGatewayProxyResult>
+  +list(event: APIGatewayEvent, context: Context): Promise<APIGatewayProxyResult>
+}
+
+class DynamoDBClient {
+  -client: AWS.DynamoDB.DocumentClient
+}
+
+Todo "1" -- "1" ITodoRepository : Uses
+Todo "1" -- "1" ITodoService : Uses
+Todo "1" -- "1" TodoFactory : Creates
+ITodoRepository <|.. TodoDynamoDBRepository : Implements
+ITodoService <|.. TodoService : Implements
+LambdaHandlers --> ITodoService : Depends on
+TodoDynamoDBRepository --> DynamoDBClient : Uses
+
+@enduml

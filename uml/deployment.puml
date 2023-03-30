@@ -1,0 +1,17 @@
+@startuml
+
+actor User
+
+node "API Gateway" as APIGateway {
+  User --> APIGateway : Sends request
+}
+
+node "AWS Lambda" as Lambda {
+  APIGateway -down-> Lambda : Invokes Lambda function
+}
+
+node "Amazon DynamoDB" as DynamoDB {
+  Lambda --> DynamoDB : Interacts with DynamoDB
+}
+
+@enduml

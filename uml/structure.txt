@@ -1,0 +1,44 @@
+todo-project/
+│
+├── cdk/
+│   ├── lib/
+│   │   └── your-project-stack.ts
+│   ├── test/
+│   │   └── your-project.test.ts
+│   ├── cdk.json
+│   ├── package.json
+│   ├── tsconfig.json
+│   └── jest.config.js
+│
+└── src/
+    ├── domain/
+    │   ├── todo/
+    │   │   ├── factories/
+    │   │   │   └── TodoFactory.ts
+    │   │   ├── models/
+    │   │   │   └── Todo.ts
+    │   │   ├── repositories/
+    │   │   │   └── ITodoRepository.ts
+    │   │   └── services/
+    │   │       ├── ITodoService.ts
+    │   │       └── TodoService.ts
+    │   └── ... (other domain models)
+    │
+    ├── infrastructure/
+    │   ├── api/
+    │   │   ├── createTodo.ts
+    │   │   ├── getTodo.ts
+    │   │   ├── updateTodo.ts
+    │   │   ├── deleteTodo.ts
+    │   │   └── listTodos.ts
+    │   ├── database/
+    │   │   └── dynamodb/
+    │   │       ├── DynamoDBClient.ts
+    │   │       └── TodoDynamoDBRepository.ts
+    │   └── ... (other infrastructure concerns)
+    │
+    ├── application/
+    │   └── ... (API entry points, middleware, etc.)
+    │
+    └── tests/
+        └── ... (unit and integration tests)
