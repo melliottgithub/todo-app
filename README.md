@@ -70,3 +70,21 @@ todo-project/
     ```bash
     cd todo-project
     ```
+
+3. Install the dependencies:
+
+    ```bash
+    yarn install
+    ```
+
+4. Set up your AWS credentials:
+
+    
+    [AWS Credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
+    
+
+5. Bootstrap the AWS CDK:
+
+    ```bash
+    yarn cdk bootstrap
+    ```
