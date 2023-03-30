@@ -1,1 +1,17 @@
-c
+@startuml
+title Todo State Machine
+
+[*] --> NotCompleted : Created
+
+NotCompleted: This is the initial state when a new todo is created
+
+NotCompleted -down-> Completed : Mark as completed
+Completed -up-> NotCompleted : Mark as not completed
+
+NotCompleted --> Deleted : Delete
+Completed --> Deleted : Delete
+Deleted --> [*] : Deleted
+
+Deleted: Todos in this state are permanently deleted and cannot be recovered
+
+@enduml
